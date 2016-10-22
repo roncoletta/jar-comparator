@@ -4,11 +4,12 @@ import com.roncoletta.comparator.exception.ValidationException;
 import org.junit.Test;
 import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
 
 /**
  * Created by roncoletta on 02/10/16.
  */
-@RunWith(value = JUnit4ClassRunner.class)
+@RunWith(value = BlockJUnit4ClassRunner.class)
 public class FileValidatorTest {
 
     FileValidator fileValidator = new FileValidator();

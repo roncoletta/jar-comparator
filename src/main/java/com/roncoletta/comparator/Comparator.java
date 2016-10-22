@@ -1,9 +1,13 @@
 package com.roncoletta.comparator;
 
+import com.roncoletta.comparator.exception.ValidationException;
 import com.roncoletta.comparator.file.FileReader;
 import com.roncoletta.comparator.file.FileValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.inject.Inject;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by roncoletta on 01/10/16.
@@ -11,9 +15,9 @@ import javax.inject.Inject;
 public class Comparator {
     private String fileName1;
     private String fileName2;
-    @Inject
+    @Autowired
     private FileReader fileReader;
-    @Inject
+    @Autowired
     private FileValidator fileValidator;
 
 
@@ -21,17 +25,16 @@ public class Comparator {
     public Comparator() {
     }
 
-    private void validateFilesNames() {
-        fileValidator.validateFileNameNotEmpty(fileName1);
-        fileValidator.validateFileNameNotEmpty(fileName2);
-    }
-
-
-    public boolean compare(String fileName1, String fileName2) {
+    public boolean compareFiles(String fileName1, String fileName2) {
         this.fileName1 = fileName1;
         this.fileName2 = fileName2;
         validateFilesNames();
         return isFileEquals();
+    }
+
+    private void validateFilesNames() {
+        fileValidator.validateFileNameNotEmpty(fileName1);
+        fileValidator.validateFileNameNotEmpty(fileName2);
     }
 
     private boolean isFileEquals() {
@@ -41,8 +44,10 @@ public class Comparator {
         return compareFiles();
     }
 
-    private boolean compareFiles() {
-       // readFile(tytfileName1);
+    private boolean compareFiles()  {
+        if(!fileValidator.isFileExist(fileName1) || !fileValidator.isFileExist(fileName2)){
+            throw new ValidationException("Files not exists");
+        }
         return true;
     }
 
