@@ -3,11 +3,9 @@ package com.roncoletta.comparator;
 import com.roncoletta.comparator.exception.ValidationException;
 import com.roncoletta.comparator.file.FileReader;
 import com.roncoletta.comparator.file.FileValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import javax.inject.Inject;
+
 
 /**
  * Created by roncoletta on 01/10/16.
@@ -15,9 +13,9 @@ import java.nio.file.Paths;
 public class Comparator {
     private String fileName1;
     private String fileName2;
-    @Autowired
+    @Inject
     private FileReader fileReader;
-    @Autowired
+    @Inject
     private FileValidator fileValidator;
 
 

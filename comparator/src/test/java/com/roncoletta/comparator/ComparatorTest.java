@@ -10,8 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.io.FileNotFoundException;
-
 /**
  * Created by roncoletta on 01/10/16.
  */

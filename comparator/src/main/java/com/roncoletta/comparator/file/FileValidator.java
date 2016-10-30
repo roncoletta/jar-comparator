@@ -1,15 +1,15 @@
 package com.roncoletta.comparator.file;
 
 import com.roncoletta.comparator.exception.ValidationException;
-import org.springframework.stereotype.Component;
 
+import javax.inject.Named;
 import java.nio.file.Paths;
 
 
 /**
  * Created by roncoletta on 02/10/16.
  */
-@Component
+@Named
 public class FileValidator {
 
     public enum RegexFilter{

@@ -2,7 +2,6 @@ package com.roncoletta.comparator.file;
 
 import com.roncoletta.comparator.exception.ValidationException;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
